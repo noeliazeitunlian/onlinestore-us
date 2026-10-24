@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armá tu Clase · Generador para Instructoras de Pilates y Yoga</title>
+<title>Build Your Class · Class Generator for Pilates &amp; Yoga Instructors</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B6E4E'/%3E%3Cpath d='M14 36c5-12 14-12 18 0s14 12 18 0' stroke='%23F4F1E7' stroke-width='5.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
 
 <div class="sticky-bar" id="sticky-bar">
   <div class="sticky-bar-inner">
-    <span class="sticky-bar-title">Armá tu clase</span>
-    <div class="discipline-toggle discipline-toggle--sticky" id="sticky-discipline-toggle" role="tablist" aria-label="Disciplina">
+    <span class="sticky-bar-title">Build your class</span>
+    <div class="discipline-toggle discipline-toggle--sticky" id="sticky-discipline-toggle" role="tablist" aria-label="Discipline">
       <button class="discipline-btn is-active" data-discipline="pilates" role="tab" aria-selected="true">Pilates</button>
       <button class="discipline-btn" data-discipline="yoga" role="tab" aria-selected="false">Yoga</button>
     </div>
@@ -29,10 +29,10 @@
     </svg>
   </div>
   <p class="eyebrow">@CLASESPARAPROFES · PILATES &amp; YOGA</p>
-  <h1 class="hero-title">Armá tu clase<br><em>en minutos.</em></h1>
-  <p class="hero-sub">Elegí las variables, y el sistema arma la secuencia con estructura pedagógica.</p>
+  <h1 class="hero-title">Build your class<br><em>in minutes.</em></h1>
+  <p class="hero-sub">Choose your options and the system builds a sequence with a real teaching structure.</p>
 
-  <div class="discipline-toggle" role="tablist" aria-label="Disciplina">
+  <div class="discipline-toggle" role="tablist" aria-label="Discipline">
     <button class="discipline-btn is-active" data-discipline="pilates" role="tab" aria-selected="true">Pilates</button>
     <button class="discipline-btn" data-discipline="yoga" role="tab" aria-selected="false">Yoga</button>
   </div>
@@ -43,43 +43,43 @@
 
   <!-- ---------------- FORM PANEL ---------------- -->
   <aside class="panel form-panel">
-    <h2>Armá tu clase</h2>
-    <p class="panel-hint">Seis decisiones. El resto lo construye el sistema de bloques.</p>
+    <h2>Build your class</h2>
+    <p class="panel-hint">Six choices. The block system builds the rest.</p>
 
     <form id="class-form">
 
       <fieldset>
-        <legend>Modalidad</legend>
+        <legend>Style</legend>
         <div class="pill-group" id="modality-group"></div>
       </fieldset>
 
       <fieldset>
-        <legend>Elemento</legend>
+        <legend>Props</legend>
         <div class="pill-group" id="equipment-group"></div>
-        <p class="field-hint">Elegí el material disponible para esta clase.</p>
+        <p class="field-hint">Choose the equipment you have for this class.</p>
       </fieldset>
 
       <fieldset>
-        <legend>Objetivo de la clase</legend>
+        <legend>Class goal</legend>
         <select id="objective-select"></select>
       </fieldset>
 
       <fieldset>
-        <legend>Nivel del grupo</legend>
+        <legend>Group level</legend>
         <div class="pill-group" id="level-group">
-          <button type="button" class="pill" data-value="inicial">Inicial</button>
-          <button type="button" class="pill is-active" data-value="intermedio">Intermedio</button>
-          <button type="button" class="pill" data-value="avanzado">Avanzado</button>
+          <button type="button" class="pill" data-value="inicial">Beginner</button>
+          <button type="button" class="pill is-active" data-value="intermedio">Intermediate</button>
+          <button type="button" class="pill" data-value="avanzado">Advanced</button>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Población</legend>
+        <legend>Who it's for</legend>
         <select id="population-select"></select>
       </fieldset>
 
       <fieldset>
-        <legend>Duración</legend>
+        <legend>Class length</legend>
         <div class="pill-group" id="duration-group">
           <button type="button" class="pill" data-value="45">45 min</button>
           <button type="button" class="pill" data-value="50">50 min</button>
@@ -91,80 +91,80 @@
 
       <label class="checkbox-row">
         <input type="checkbox" id="include-warmup" checked>
-        <span>Incluir bloque de preparación</span>
+        <span>Include the prep block</span>
       </label>
 
       <label class="checkbox-row">
         <input type="checkbox" id="avoid-recent" checked>
-        <span>Evitar ejercicios de mis últimas 3 clases guardadas</span>
+        <span>Avoid exercises from my last 3 saved classes</span>
       </label>
 
-      <button type="submit" class="btn btn-primary btn-block">Armar mi clase ✦</button>
+      <button type="submit" class="btn btn-primary btn-block">Build my class ✦</button>
     </form>
 
-    <button type="button" id="toggle-add-exercise" class="btn btn-ghost btn-block">+ Agregar ejercicio propio</button>
+    <button type="button" id="toggle-add-exercise" class="btn btn-ghost btn-block">+ Add your own exercise</button>
 
-    <!-- ---------------- ADD-EXERCISE FORM (oculto por defecto) ---------------- -->
+    <!-- ---------------- ADD-EXERCISE FORM (hidden by default) ---------------- -->
     <form id="exercise-form" class="hidden">
-      <p class="panel-hint">Cargá un ejercicio que uses vos. Queda guardado en este dispositivo y entra automáticamente en el generador para tus próximas clases.</p>
+      <p class="panel-hint">Add an exercise you use. It's saved on this device and automatically goes into the generator for your next classes.</p>
 
-      <label>Nombre del ejercicio
-        <input type="text" id="ex-name" placeholder="Ej: Mi variante de puente con banda" required>
+      <label>Exercise name
+        <input type="text" id="ex-name" placeholder="E.g. My bridge variation with a band" required>
       </label>
 
-      <label>Consigna / cómo se hace
-        <textarea id="ex-description" placeholder="Escribí la consigna con tus palabras, como se la darías a tu grupo..." required></textarea>
+      <label>Cue / how it's done
+        <textarea id="ex-description" placeholder="Write the cue in your own words, the way you'd give it to your group..." required></textarea>
       </label>
 
       <fieldset>
-        <legend>Modalidad</legend>
+        <legend>Style</legend>
         <div class="pill-group" id="ex-modality-group"></div>
       </fieldset>
 
       <fieldset>
-        <legend>Nivel (uno o varios)</legend>
+        <legend>Level (one or more)</legend>
         <div class="pill-group multi" id="ex-level-group">
-          <button type="button" class="pill" data-value="inicial">Inicial</button>
-          <button type="button" class="pill" data-value="intermedio">Intermedio</button>
-          <button type="button" class="pill" data-value="avanzado">Avanzado</button>
+          <button type="button" class="pill" data-value="inicial">Beginner</button>
+          <button type="button" class="pill" data-value="intermedio">Intermediate</button>
+          <button type="button" class="pill" data-value="avanzado">Advanced</button>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Momento de la clase</legend>
+        <legend>Class block</legend>
         <div class="pill-group multi" id="ex-moment-group"></div>
       </fieldset>
 
       <fieldset>
-        <legend>Objetivo (para qué sirve)</legend>
+        <legend>Goal (what it's for)</legend>
         <div class="pill-group multi" id="ex-objective-group"></div>
       </fieldset>
 
-      <label>Posición (opcional)
-        <input type="text" id="ex-position" placeholder="Ej: Supino, sentada, cuadrupedia...">
+      <label>Position (optional)
+        <input type="text" id="ex-position" placeholder="E.g. Supine, seated, all fours...">
       </label>
 
-      <label>Elemento (opcional)
+      <label>Prop (optional)
         <select id="ex-equipment-select"></select>
       </label>
 
       <fieldset>
-        <legend>Evitar en (opcional)</legend>
+        <legend>Avoid with (optional)</legend>
         <div class="pill-group multi" id="ex-avoid-group"></div>
       </fieldset>
 
-      <button type="submit" class="btn btn-accent btn-block">Guardar ejercicio ✦</button>
+      <button type="submit" class="btn btn-accent btn-block">Save exercise ✦</button>
     </form>
 
-    <button type="button" id="toggle-my-exercises" class="btn btn-ghost btn-block">🗂️ Mis ejercicios propios</button>
+    <button type="button" id="toggle-my-exercises" class="btn btn-ghost btn-block">🗂️ My own exercises</button>
     <div id="my-exercises-panel" class="hidden">
-      <p class="panel-hint">Ejercicios que cargaste vos, desde el formulario o el "+ Sumar" rápido dentro de una clase.</p>
+      <p class="panel-hint">Exercises you've added, from the form or with the quick "+ Add" inside a class.</p>
       <div id="my-exercises-list"></div>
     </div>
 
-    <button type="button" id="toggle-saved-classes" class="btn btn-ghost btn-block">📂 Mis clases guardadas</button>
+    <button type="button" id="toggle-saved-classes" class="btn btn-ghost btn-block">📂 My saved classes</button>
     <div id="saved-classes-panel" class="hidden">
-      <p class="panel-hint">Clases que guardaste para reabrir más tarde, tal como quedaron armadas.</p>
+      <p class="panel-hint">Classes you've saved to reopen later, exactly as you built them.</p>
       <div id="saved-classes-list"></div>
     </div>
   </aside>
@@ -172,8 +172,8 @@
   <!-- ---------------- OUTPUT PANEL ---------------- -->
   <section class="panel output-panel" id="output-panel">
     <div class="output-empty" id="output-empty">
-      <p>Tu clase aparece acá.</p>
-      <p class="muted">Elegí las opciones de la izquierda y tocá <strong>Armar mi clase</strong>. Vas a recibir los bloques con tiempos, ejercicios y adaptaciones.</p>
+      <p>Your class will appear here.</p>
+      <p class="muted">Choose your options and tap <strong>Build my class</strong>. You'll get the blocks with timings, exercises and modifications.</p>
     </div>
     <div id="output-content" class="hidden"></div>
   </section>
@@ -181,12 +181,12 @@
 </main>
 
 <footer class="site-footer">
-  <p>Este generador se apoya en tu propio método de planificación de clases. Las adaptaciones por contraindicación son orientativas: siempre individualizá y, ante una condición de salud, trabajá junto al profesional tratante de cada alumna.</p>
+  <p>This generator supports your own class-planning approach. Modifications are general guidance, not medical advice: always adjust to the individual and, if a student has a health condition, work alongside their doctor or physical therapist.</p>
 </footer>
 
 <div class="live-mode hidden" id="live-mode">
   <div class="live-mode-inner">
-    <button type="button" class="live-close" id="live-close" aria-label="Cerrar modo clase en vivo">✕</button>
+    <button type="button" class="live-close" id="live-close" aria-label="Close live class mode">✕</button>
     <p class="live-progress" id="live-progress"></p>
     <h3 class="live-block-name" id="live-block-name"></h3>
     <div class="live-timer" id="live-timer">00:00</div>
@@ -197,9 +197,9 @@
       <p class="live-ex-howto" id="live-ex-howto"></p>
     </div>
     <div class="live-controls">
-      <button type="button" class="btn-mini" id="live-prev">‹ Anterior</button>
-      <button type="button" class="btn btn-primary" id="live-pause">Pausar</button>
-      <button type="button" class="btn-mini" id="live-next">Siguiente ›</button>
+      <button type="button" class="btn-mini" id="live-prev">‹ Previous</button>
+      <button type="button" class="btn btn-primary" id="live-pause">Pause</button>
+      <button type="button" class="btn-mini" id="live-next">Next ›</button>
     </div>
   </div>
 </div>
