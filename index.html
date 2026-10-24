@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armá tu Clase · Generador para Instructoras de Pilates y Yoga</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235B6E4E'/%3E%3Cpath d='M14 36c5-12 14-12 18 0s14 12 18 0' stroke='%23F4F1E7' stroke-width='5.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-bar-inner">
+    <span class="sticky-bar-title">Armá tu clase</span>
+    <div class="discipline-toggle discipline-toggle--sticky" id="sticky-discipline-toggle" role="tablist" aria-label="Disciplina">
+      <button class="discipline-btn is-active" data-discipline="pilates" role="tab" aria-selected="true">Pilates</button>
+      <button class="discipline-btn" data-discipline="yoga" role="tab" aria-selected="false">Yoga</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="brand-mark" aria-hidden="true">
+    <svg viewBox="0 0 64 64" width="40" height="40">
+      <rect width="64" height="64" rx="16" fill="var(--bordo)"/>
+      <path d="M14 36c5-12 14-12 18 0s14 12 18 0" stroke="var(--blush)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <p class="eyebrow">@CLASESPARAPROFES · PILATES &amp; YOGA</p>
+  <h1 class="hero-title">Armá tu clase<br><em>en minutos.</em></h1>
+  <p class="hero-sub">Elegí las variables, y el sistema arma la secuencia con estructura pedagógica.</p>
+
+  <div class="discipline-toggle" role="tablist" aria-label="Disciplina">
+    <button class="discipline-btn is-active" data-discipline="pilates" role="tab" aria-selected="true">Pilates</button>
+    <button class="discipline-btn" data-discipline="yoga" role="tab" aria-selected="false">Yoga</button>
+  </div>
+</header>
+<div id="hero-sentinel"></div>
+
+<main class="layout">
+
+  <!-- ---------------- FORM PANEL ---------------- -->
+  <aside class="panel form-panel">
+    <h2>Armá tu clase</h2>
+    <p class="panel-hint">Seis decisiones. El resto lo construye el sistema de bloques.</p>
+
+    <form id="class-form">
+
+      <fieldset>
+        <legend>Modalidad</legend>
+        <div class="pill-group" id="modality-group"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Elemento</legend>
+        <div class="pill-group" id="equipment-group"></div>
+        <p class="field-hint">Elegí el material disponible para esta clase.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Objetivo de la clase</legend>
+        <select id="objective-select"></select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Nivel del grupo</legend>
+        <div class="pill-group" id="level-group">
+          <button type="button" class="pill" data-value="inicial">Inicial</button>
+          <button type="button" class="pill is-active" data-value="intermedio">Intermedio</button>
+          <button type="button" class="pill" data-value="avanzado">Avanzado</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Población</legend>
+        <select id="population-select"></select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Duración</legend>
+        <div class="pill-group" id="duration-group">
+          <button type="button" class="pill" data-value="45">45 min</button>
+          <button type="button" class="pill" data-value="50">50 min</button>
+          <button type="button" class="pill is-active" data-value="55">55 min</button>
+          <button type="button" class="pill" data-value="60">60 min</button>
+          <button type="button" class="pill" data-value="75">75 min</button>
+        </div>
+      </fieldset>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="include-warmup" checked>
+        <span>Incluir bloque de preparación</span>
+      </label>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="avoid-recent" checked>
+        <span>Evitar ejercicios de mis últimas 3 clases guardadas</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">Armar mi clase ✦</button>
+    </form>
+
+    <button type="button" id="toggle-add-exercise" class="btn btn-ghost btn-block">+ Agregar ejercicio propio</button>
+
+    <!-- ---------------- ADD-EXERCISE FORM (oculto por defecto) ---------------- -->
+    <form id="exercise-form" class="hidden">
+      <p class="panel-hint">Cargá un ejercicio que uses vos. Queda guardado en este dispositivo y entra automáticamente en el generador para tus próximas clases.</p>
+
+      <label>Nombre del ejercicio
+        <input type="text" id="ex-name" placeholder="Ej: Mi variante de puente con banda" required>
+      </label>
+
+      <label>Consigna / cómo se hace
+        <textarea id="ex-description" placeholder="Escribí la consigna con tus palabras, como se la darías a tu grupo..." required></textarea>
+      </label>
+
+      <fieldset>
+        <legend>Modalidad</legend>
+        <div class="pill-group" id="ex-modality-group"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Nivel (uno o varios)</legend>
+        <div class="pill-group multi" id="ex-level-group">
+          <button type="button" class="pill" data-value="inicial">Inicial</button>
+          <button type="button" class="pill" data-value="intermedio">Intermedio</button>
+          <button type="button" class="pill" data-value="avanzado">Avanzado</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Momento de la clase</legend>
+        <div class="pill-group multi" id="ex-moment-group"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Objetivo (para qué sirve)</legend>
+        <div class="pill-group multi" id="ex-objective-group"></div>
+      </fieldset>
+
+      <label>Posición (opcional)
+        <input type="text" id="ex-position" placeholder="Ej: Supino, sentada, cuadrupedia...">
+      </label>
+
+      <label>Elemento (opcional)
+        <select id="ex-equipment-select"></select>
+      </label>
+
+      <fieldset>
+        <legend>Evitar en (opcional)</legend>
+        <div class="pill-group multi" id="ex-avoid-group"></div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-accent btn-block">Guardar ejercicio ✦</button>
+    </form>
+
+    <button type="button" id="toggle-my-exercises" class="btn btn-ghost btn-block">🗂️ Mis ejercicios propios</button>
+    <div id="my-exercises-panel" class="hidden">
+      <p class="panel-hint">Ejercicios que cargaste vos, desde el formulario o el "+ Sumar" rápido dentro de una clase.</p>
+      <div id="my-exercises-list"></div>
+    </div>
+
+    <button type="button" id="toggle-saved-classes" class="btn btn-ghost btn-block">📂 Mis clases guardadas</button>
+    <div id="saved-classes-panel" class="hidden">
+      <p class="panel-hint">Clases que guardaste para reabrir más tarde, tal como quedaron armadas.</p>
+      <div id="saved-classes-list"></div>
+    </div>
+  </aside>
+
+  <!-- ---------------- OUTPUT PANEL ---------------- -->
+  <section class="panel output-panel" id="output-panel">
+    <div class="output-empty" id="output-empty">
+      <p>Tu clase aparece acá.</p>
+      <p class="muted">Elegí las opciones de la izquierda y tocá <strong>Armar mi clase</strong>. Vas a recibir los bloques con tiempos, ejercicios y adaptaciones.</p>
+    </div>
+    <div id="output-content" class="hidden"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Este generador se apoya en tu propio método de planificación de clases. Las adaptaciones por contraindicación son orientativas: siempre individualizá y, ante una condición de salud, trabajá junto al profesional tratante de cada alumna.</p>
+</footer>
+
+<div class="live-mode hidden" id="live-mode">
+  <div class="live-mode-inner">
+    <button type="button" class="live-close" id="live-close" aria-label="Cerrar modo clase en vivo">✕</button>
+    <p class="live-progress" id="live-progress"></p>
+    <h3 class="live-block-name" id="live-block-name"></h3>
+    <div class="live-timer" id="live-timer">00:00</div>
+    <div class="live-exercise">
+      <p class="live-ex-position" id="live-ex-position"></p>
+      <h4 id="live-ex-name"></h4>
+      <p id="live-ex-desc"></p>
+      <p class="live-ex-howto" id="live-ex-howto"></p>
+    </div>
+    <div class="live-controls">
+      <button type="button" class="btn-mini" id="live-prev">‹ Anterior</button>
+      <button type="button" class="btn btn-primary" id="live-pause">Pausar</button>
+      <button type="button" class="btn-mini" id="live-next">Siguiente ›</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
